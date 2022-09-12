@@ -1,11 +1,10 @@
 <template>
   <div id="app">
     <MainHeader @onSearch="setMovies"/>
-    <ul>
+    <div  class="container grid">
       <CardComponent 
       v-for="(film, i) in movies" :key="i" :film="film"></CardComponent>
-    </ul>
-    
+    </div>
   </div>
 </template>
 
@@ -24,12 +23,9 @@ export default {
     return{
       api_key: '7f6af0ea9459b62ef9ca7dca6c9afbf9',
         BaseLink: 'https://api.themoviedb.org/3/search',
-        // BaseLinkSeries: 'https://api.themoviedb.org/3/search/tv?',
         queryMovies: '',
-        // querySeries: '',
         movies: [],
-        // series:[],
-        // PosterSize: 'https://image.tmdb.org/t/p/w342'
+       
     }
   },
   methods: {
@@ -42,5 +38,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import './style/general.scss'
+@import './style/general.scss';
+.container{
+    max-width: 1250px;
+    margin: 0 auto;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
 </style>

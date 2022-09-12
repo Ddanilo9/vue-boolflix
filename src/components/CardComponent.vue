@@ -1,27 +1,27 @@
 <template>
-    <main>
-    <li>
-        <img :src="PosterSize + film.poster_path" alt="">
+<main>
+    <div>
+       <img :src="PosterSize + film.poster_path" alt="">
         <h4>Nome film originale:</h4> {{ film.original_title }}
         <h4>Nome film</h4> {{ film.title }}
-        <h4>Lingua: 
+        <h4>divngua: 
         <img v-if="film.original_language == 'en'" :src="src('gb')" width="16" height="12">
         <img :src="src(film.original_language)" width="16" height="12">
         </h4>
         <h4>Voto</h4>  {{vote(film.vote_average) }}
-        <br>
-    </li>
-    <li v-for="(serie, i) in series" :key="i">
+        
+        
+    </div>
+    <div v-for="(serie, i) in series" :key="i">
             <img :src="PosterSize + serie.poster_path" alt="">
             <h4>Nome film originale:</h4> {{ serie.name }}
-            <h4>Lingua: 
+            <h4>divngua: 
             <img v-if="serie.original_language == 'en'" :src="src('gb')" width="16" height="12">
             <img :src="src(serie.original_language)" width="16" height="12"></h4>
             <h4>Voto</h4>  {{vote(serie.vote_average) }}
-            <br>
-    </li>
-    </main> 
-    
+    </div>   
+</main> 
+
 </template>
 
 

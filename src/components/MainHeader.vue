@@ -1,9 +1,10 @@
 <template>
   <header>
-    <h1>Search Movies</h1>
+    <h1>Boolflix</h1>
+    <h2>Search Movies</h2>
     <input type="text"  placeholder="search movies" v-model="queryMovies" />
     <input type="submit" value="search" @click="fetchMovies()" />
-    <h1>Search Series</h1>
+    <h2>Search Series</h2>
     <input type="text"  placeholder="search series" v-model="querySeries" />
     <input type="submit" value="search" @click="fetchSeries()" />
   </header>
@@ -53,8 +54,20 @@
     },
   };
   </script>
-
+ 
 
 <style scoped lang="scss">
-
+header{
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  background-color: black;
+  h1{
+    color: red;
+  }
+  h2{
+    color: white;
+    padding: 0 20px;
+  }
+}
 </style>
