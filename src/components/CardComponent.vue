@@ -4,7 +4,7 @@
        <img :src="PosterSize + film.poster_path" alt="">
         <h4>Nome film originale:</h4> {{ film.original_title }}
         <h4>Nome film</h4> {{ film.title }}
-        <h4>divngua: 
+        <h4>lingua: 
         <img v-if="film.original_language == 'en'" :src="src('gb')" width="16" height="12">
         <img :src="src(film.original_language)" width="16" height="12">
         </h4>
@@ -12,7 +12,7 @@
             <font-awesome-icon icon="fa-solid fa-star" />
         </span>
         <span v-for="(el, index) in vote( 10 - film.vote_average)" :key="index">
-            <font-awesome-icon icon="fa-regular fa-star-half" />
+            <font-awesome-icon icon="fa-regular fa-star" />
         </span>
     
         
@@ -22,10 +22,16 @@
     <div v-for="(serie, i) in series" :key="i">
             <img :src="PosterSize + serie.poster_path" alt="">
             <h4>Nome film originale:</h4> {{ serie.name }}
-            <h4>divngua: 
+            <h4>lingua: 
             <img v-if="serie.original_language == 'en'" :src="src('gb')" width="16" height="12">
             <img :src="src(serie.original_language)" width="16" height="12"></h4>
-            <h4>Voto</h4>  {{vote(serie.vote_average) }}
+            <span v-for="(voto, index) in vote(serie.vote_average)" :key="index">
+            <font-awesome-icon icon="fa-solid fa-star" />
+        </span>
+        <span v-for="(el, index) in vote( 10 - serie.vote_average)" :key="index">
+            <font-awesome-icon icon="fa-regular fa-star" />
+        </span>
+            
     </div>   
 </main> 
 
