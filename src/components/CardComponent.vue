@@ -8,7 +8,14 @@
         <img v-if="film.original_language == 'en'" :src="src('gb')" width="16" height="12">
         <img :src="src(film.original_language)" width="16" height="12">
         </h4>
-        <h4>Voto</h4>  {{vote(film.vote_average) }}
+        <span v-for="(voto, index) in vote(film.vote_average)" :key="index">
+            <font-awesome-icon icon="fa-solid fa-star" />
+        </span>
+        <span v-for="(el, index) in vote( 10 - film.vote_average)" :key="index">
+            <font-awesome-icon icon="fa-regular fa-star-half" />
+        </span>
+    
+        
         
         
     </div>
@@ -26,6 +33,7 @@
 
 
 <script>
+
 export default {
     props: {
        film:{
@@ -48,6 +56,9 @@ export default {
         vote (num) {
         return Math.round(num /2)
       }
+    },
+    voteRate(voto){
+        return voto
     }
     
 }
