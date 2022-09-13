@@ -28,8 +28,7 @@
         BaseLinkSeries: 'https://api.themoviedb.org/3/search/tv?',
         queryMovies: '',
         querySeries: '',
-        search: search
-      
+        search: search,
       };
     },
     methods: {
@@ -62,7 +61,6 @@
           });
       },
     },
-    
   };
   </script>
  
@@ -90,7 +88,7 @@ header{
     .button{
       border: none;
       padding: 5px;
-      background-color: rgb(149, 79, 79);
+      background-color: rgb(170, 51, 51);
       color: white;
       border-radius: 0 5px 5px 0;
       img{
@@ -107,7 +105,7 @@ header{
 
   }
   h1{
-    color: red; 
+    color: rgb(213, 6, 6); 
   }
   
 }

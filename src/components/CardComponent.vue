@@ -37,14 +37,13 @@
                 <img v-else :src="src(serie.original_language)" width="16" height="12">
             </h4>
         </div>
-            
-    </div>   
+    </div> 
 </main> 
-
 </template>
 
 
 <script>
+// import axios from 'axios'
 import foto from '../assets/netflix-1200x900.jpg'
 
 export default {
@@ -60,7 +59,7 @@ export default {
     data(){
         return{
         PosterSize: 'https://image.tmdb.org/t/p/w342',
-        foto: foto
+        foto: foto,
         }
     },
     methods:{
@@ -75,16 +74,25 @@ export default {
                 return this.foto
             }
             return this.PosterSize + el 
-        }
+        },
     },
-    
+    // mounted(){
+    //   axios
+    //       .get(
+    //         `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.api_key}`
+    //       )
+    //       .then((res) => {
+    //         console.log(res.data.genres)
+    //         this.$emit('searchGener',res.data.genres);
+    //       });
+    //   }
 }
 </script>
 
 <style lang="scss" scoped>
-    img{
-        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-    }
+img{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
 .card{
 position: relative;
 height: 100%;
@@ -130,6 +138,4 @@ cursor: pointer;
     }    
     }
 }
-
-
 </style>

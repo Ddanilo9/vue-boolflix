@@ -25,6 +25,7 @@ export default {
         BaseLink: 'https://api.themoviedb.org/3/search',
         queryMovies: '',
         movies: [],
+        series: [],
     }
   },
   methods: {
@@ -45,7 +46,7 @@ export default {
 }
 .grid{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
 }
