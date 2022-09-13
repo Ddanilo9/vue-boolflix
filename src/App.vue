@@ -3,7 +3,7 @@
     <MainHeader @onSearch="setMovies"/>
     <div  class="container grid">
       <CardComponent 
-      v-for="(film, i) in movies" :key="i" :film="film"></CardComponent>
+      v-for="film in movies" :key="film.id" :film="film"></CardComponent>
     </div>
   </div>
 </template>
@@ -25,7 +25,6 @@ export default {
         BaseLink: 'https://api.themoviedb.org/3/search',
         queryMovies: '',
         movies: [],
-       
     }
   },
   methods: {
@@ -33,15 +32,16 @@ export default {
       this.movies = movies
       this.series = series
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss">
 @import './style/general.scss';
 .container{
-    max-width: 1250px;
+    max-width: 1300px;
     margin: 0 auto;
+    margin-top: 30px;
 }
 .grid{
     display: grid;

@@ -1,17 +1,24 @@
 <template>
   <header>
-    <h1>Boolflix</h1>
-    <h2>Search Movies</h2>
-    <input type="text"  placeholder="search movies" v-model="queryMovies" />
-    <input type="submit" value="search" @click="fetchMovies()" />
-    <h2>Search Series</h2>
-    <input type="text"  placeholder="search series" v-model="querySeries" />
-    <input type="submit" value="search" @click="fetchSeries()" />
+    <h1 class="logo-title">Boolflix</h1>
+    <div class="search-box">
+      <h2>Search Movies</h2>
+      <input class="text" type="text"  placeholder="search" v-model="queryMovies" />
+      <button class="button" @click="fetchMovies()">
+       <img :src="search" alt=""></button>  
+    </div>
+    <div class="search-box">
+      <h2>Search Series</h2>
+      <input class="text" type="text"  placeholder="search" v-model="querySeries" />
+      <button class="button" @click="fetchSeries()">
+      <img :src="search" alt=""></button>  
+    </div>
   </header>
 </template>
 
 <script>
   import axios from "axios";
+  import search from '../assets/768px-OOjs_UI_icon_search-ltr.svg.png'
   
   export default {
     data() {
@@ -21,8 +28,8 @@
         BaseLinkSeries: 'https://api.themoviedb.org/3/search/tv?',
         queryMovies: '',
         querySeries: '',
-        movies: [],
-        series:[],
+        search: search
+      
       };
     },
     methods: {
@@ -37,8 +44,10 @@
             console.log(res.data.results)
             // this.movies = res.data.results;
             this.$emit('onSearch', res.data.results)
-          });
+            this.queryMovies = ''
+          })
       },
+
       fetchSeries() {
         if (this.querySeries.trim() === '')
         return
@@ -49,25 +58,55 @@
           .then((res) => {
             console.log(res.data.results)
             this.$emit('onSearch', res.data.results);
+            this.querySeries = ''
           });
       },
     },
+    
   };
   </script>
  
-
 <style scoped lang="scss">
 header{
   display: flex;
   align-items: center;
-  padding: 10px 5px;
+  padding: 15px 10px;
   background-color: black;
-  h1{
-    color: red;
+  .logo-title{
+    flex-grow: 1;
   }
-  h2{
+  .search-box{
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+
+    h2{
+    font-size: 16px;
     color: white;
-    padding: 0 20px;
+    padding: 0 10px;
+
+    }
+    .button{
+      border: none;
+      padding: 5px;
+      background-color: rgb(149, 79, 79);
+      color: white;
+      img{
+        width: 13px;
+        color: white;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+    }
+    .text{
+      line-height: 19px;
+    }
+
   }
+  h1{
+    color: red; 
+  }
+  
 }
 </style>

@@ -11,6 +11,7 @@ import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
 import { faStarHalf } from '@fortawesome/free-regular-svg-icons'
 
+
 /* add icons to the library */
 library.add(faUserSecret,fasStar,faStarHalf,farStar)
 
