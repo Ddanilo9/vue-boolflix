@@ -73,10 +73,11 @@ header{
   padding: 15px 10px;
   background-color: black;
   .logo-title{
+    font-size: 35px;
     flex-grow: 1;
   }
   .search-box{
-    margin: 0 20px;
+    margin: 0 15px;
     display: flex;
     align-items: center;
 
@@ -91,6 +92,7 @@ header{
       padding: 5px;
       background-color: rgb(149, 79, 79);
       color: white;
+      border-radius: 0 5px 5px 0;
       img{
         width: 13px;
         color: white;
@@ -100,7 +102,7 @@ header{
       }
     }
     .text{
-      line-height: 19px;
+      line-height: 19.5px;
     }
 
   }
